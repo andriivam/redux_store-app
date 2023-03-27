@@ -3,6 +3,7 @@ import './BookHeader.css';
 import { Link } from 'react-router-dom';
 
 export default function BookHeader({ numItems, total }) {
+
     return (
         <header className="shop-header">
             <Link to="/" className="logo-link">

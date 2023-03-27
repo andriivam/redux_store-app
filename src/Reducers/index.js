@@ -1,54 +1,11 @@
-const initialState = {
-    books: [],
-    loading: true,
-    error: null,
-    cartItems: [],
-    orderTotal: 270
-};
+import updateBookList from './bookList';
+import updateShoppingCart from './shoppingCart';
 
-const reducer = (state = initialState, action) => {
+const reducer = (state, action) => {
 
-    switch (action.type) {
-        case 'FETCH_BOOKS_REQUEST':
-            return {
-                ...state,
-                books: [],
-                loading: true,
-                error: null
-            };
-        case 'FETCH_BOOKS_SUCCESS':
-            return {
-                ...state,
-                books: action.payload,
-                loading: false,
-                error: null
-            };
-        case 'FETCH-BOOKS_FAILURE':
-            return {
-                ...state,
-                books: [],
-                loading: false,
-                error: action.payload
-            }
-        case 'BOOK_ADDED_TO_CART':
-            const bookId = action.payload;
-            const book = state.books.find((book) => book.id === bookId);
-            const newItem = {
-                id: book.id,
-                title: book.title,
-                count: 1,
-                total: book.price
-            }
-            return {
-                ...state,
-                cartItems: [
-                    ...state.cartItems,
-                    newItem
-                ]
-            }
-
-        default:
-            return state;
+    return {
+        bookList: updateBookList(state, action),
+        shoppingCart: updateShoppingCart(state, action)
     };
 };
 

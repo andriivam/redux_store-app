@@ -8,11 +8,10 @@ import BookHeader from './Components/BookHeader/BookHeader';
 function App() {
 
 
-
   return (
     <div className="container">
       <Router>
-        <BookHeader numItems={5} total={210} />
+        <BookHeader numItems={5} total={0} />
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/cart" element={<Carts />} />

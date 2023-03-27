@@ -10,19 +10,12 @@ import store from './store';
 
 const bookstoreService = new BookstoreService();
 
-
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <ErrorBoundry >
         <BookStoreContext.Provider value={bookstoreService}>
-          {/* <Router>
-            <Routes>
-              <Route path="/" element={<App />} />
-            </Routes>
-          </Router> */}
           <App />
         </BookStoreContext.Provider>
       </ErrorBoundry >
